@@ -4,3 +4,4 @@ TaskBuster.sublime-workspace
 .coverage
 .DS_Store
 htmlcov
+taskbuster/fixtures
