@@ -3,13 +3,14 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Sammy Gonzales-Luna -- Developer -- @iamsamwich
 
 # THANKS
 
-    <name>
+    Thanks to Marina Mele who encouraged me to follow her tutorial
+    TaskBuster Django Tutorial
 
 # TECHNOLOGY COLOPHON
-
+    Django
     HTML5, CSS3
     jQuery, Modernizr
