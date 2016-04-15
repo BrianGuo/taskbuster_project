@@ -5,3 +5,8 @@ TaskBuster.sublime-workspace
 .DS_Store
 htmlcov
 taskbuster/fixtures
+taskbuster/staticfiles/admin
+taskbuster/staticfiles/css
+taskbuster/staticfiles/fonts
+taskbuster/staticfiles/js
+taskbuster/staticfiles/favicon.ico
