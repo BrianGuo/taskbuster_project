@@ -16,5 +16,5 @@ DATABASES = {
 }
 
 FIXTURE_DIRS = (
-    os.path.join(BASE_DIR, 'fixtures'),
+    os.path.join(PROJECT_ROOT, 'fixtures'),
 )
