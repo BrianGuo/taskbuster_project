@@ -5,8 +5,6 @@ from selenium import webdriver
 
 from django.core.urlresolvers import reverse
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-# REMOVING INTERNATIONALIZATION
-# from django.utils.translation import activate
 from django.utils import formats
 
 
@@ -40,20 +38,8 @@ class HomeNewVisitorTest(StaticLiveServerTestCase):
         self.browser.get(self.live_server_url + "/humans.txt")
         self.assertNotIn("Not Found", self.browser.title)
 
-    # REMOVING INTERNATIONALIZATION
-    # def test_internationalization(self):
-    #     for lang, h1_text in [('en', 'Welcome to TaskBuster!'),
-    #                                 ('ca', "Benvingut a TaskBuster!")]:
-    #         activate(lang)
-    #         self.browser.get(self.get_full_url('home'))
-    #         h1 = self.browser.find_element_by_tag_name('h1')
-    #         self.assertEqual(h1.text, h1_text)
-
     def test_localization(self):
         today = date.today()
-        # REMOVING INTERNATIONALIZATION
-        # for lang in ['en', 'ca']:
-        #     activate(lang)
         self.browser.get(self.get_full_url("home"))
         local_date = self.browser.find_element_by_id("local-date")
         non_local_date = self.browser.find_element_by_id("non-local-date")

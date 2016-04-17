@@ -67,8 +67,6 @@ LOGIN_REDIRECT_URL = "/"
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # REMOVING INTERNATIONALIZATION
-    # 'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -91,8 +89,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # REMOVING INTERNATIONALIZATION
-                # 'django.template.context_processors.i18n',
                 # Required by allauth template tags
                 'django.core.context_processors.request',
             ],
@@ -133,18 +129,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-# REMOVING INTERNATIONALIZATION
-# LANGUAGES = (
-#     ('en', _('English')),
-#     ('ca', _('Catalan')),
-# )
-
-# LANGUAGE_CODE = 'en-es'
-
-# LOCALE_PATHS = (
-#     os.path.join(PROJECT_ROOT, 'locale'),
-# )
 
 
 # Static files (CSS, JavaScript, Images)

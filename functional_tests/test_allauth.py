@@ -7,7 +7,6 @@ from selenium.common.exceptions import TimeoutException
 
 from django.core.urlresolvers import reverse
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from django.utils.translation import activate
 from django.utils.html import escape
 
 
@@ -19,7 +18,6 @@ class TestGoogleLogin(StaticLiveServerTestCase):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
         self.browser.wait = WebDriverWait(self.browser, 10)
-        activate('en')
 
     def tearDown(self):
         self.browser.quit()
