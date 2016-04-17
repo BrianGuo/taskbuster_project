@@ -7,7 +7,7 @@ DEBUG = True
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 SITE_ID = 3
 ALLOWED_HOSTS_ = ['taskbustertutsgl.herokuapp.com']
-DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config(conn_max_age=500)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
