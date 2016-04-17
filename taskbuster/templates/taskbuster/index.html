@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% load i18n %}
+{# REMOVING INTERNATIONALIZATION #}
+{# {% load i18n %} #}
 {% load l10n %}
 {% load tz %}
 {% block head_title %}TaskBuster Django Tutorial{% endblock %}
@@ -7,8 +8,11 @@
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
-      <h1>{% trans "Welcome to TaskBuster!" %}</h1>
-      <p>{% blocktrans %}TaskBuster is a simple Task manager that helps your daily life.{% endblocktrans %}</p>
+      <h1>Welcome to TaskBuster!</h1>
+      {# REMOVING INTERNATIONALIZATION #}
+      {# <!--<h1>{% trans "Welcome to TaskBuster!" %}</h1>--> #}
+      <p>TaskBuster is a simple Task manager that helps your daily life.</p>
+      {# <!--<p>{% blocktrans %}TaskBuster is a simple Task manager that helps your daily life.{% endblocktrans %}</p>--> #}
       <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
     </div>
   </div>
