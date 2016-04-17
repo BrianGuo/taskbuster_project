@@ -7,12 +7,11 @@ from selenium.common.exceptions import TimeoutException
 
 from django.core.urlresolvers import reverse
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from django.utils.html import escape
 
 
 class TestGoogleLogin(StaticLiveServerTestCase):
-
-    fixtures = ['allauth_fixture']
+    # REMOVE GOOGLE AUTH
+    # fixtures = ['allauth_fixture']
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -33,31 +32,33 @@ class TestGoogleLogin(StaticLiveServerTestCase):
     def get_full_url(self, namespace):
         return self.live_server_url + reverse(namespace)
 
-    def user_login(self):
-        import json
-        with open("taskbuster/fixtures/google_user.json") as f:
-            credentials = json.loads(f.read())
-        email = credentials['Email']
-        passw = credentials['Password']
-        self.get_element_by_id('Email').send_keys(email)
-        self.get_button_by_id('next').click()
-        self.get_element_by_id('Passwd').send_keys(passw)
-        self.get_button_by_id('signIn').click()
-        self.get_button_by_id('submit_approve_access').click()
-        return
+    # REMOVE GOOGLE AUTH
+    # def user_login(self):
+    #     import json
+    #     with open("taskbuster/fixtures/google_user.json") as f:
+    #         credentials = json.loads(f.read())
+    #     email = credentials['Email']
+    #     passw = credentials['Password']
+    #     self.get_element_by_id('Email').send_keys(email)
+    #     self.get_button_by_id('next').click()
+    #     self.get_element_by_id('Passwd').send_keys(passw)
+    #     self.get_button_by_id('signIn').click()
+    #     self.get_button_by_id('submit_approve_access').click()
+    #     return
 
-    def test_google_login(self):
-        self.browser.get(self.get_full_url("home"))
-        google_login = self.get_element_by_id("google_login")
-        with self.assertRaises(TimeoutException):
-            self.get_element_by_id("logout")
-        self.assertEqual(
-            google_login.get_attribute("href"),
-            self.live_server_url + "/accounts/google/login")
-        google_login.click()
-        self.user_login()
-        with self.assertRaises(TimeoutException):
-            self.get_element_by_id("google_login")
-        google_logout = self.get_element_by_id("logout")
-        google_logout.click()
-        google_login = self.get_element_by_id("google_login")
+    # REMOVE GOOGLE AUTH
+    # def test_google_login(self):
+    #     self.browser.get(self.get_full_url("home"))
+    #     google_login = self.get_element_by_id("google_login")
+    #     with self.assertRaises(TimeoutException):
+    #         self.get_element_by_id("logout")
+    #     self.assertEqual(
+    #         google_login.get_attribute("href"),
+    #         self.live_server_url + "/accounts/google/login")
+    #     google_login.click()
+    #     self.user_login()
+    #     with self.assertRaises(TimeoutException):
+    #         self.get_element_by_id("google_login")
+    #     google_logout = self.get_element_by_id("logout")
+    #     google_logout.click()
+    #     google_login = self.get_element_by_id("google_login")

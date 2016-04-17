@@ -54,15 +54,17 @@ INSTALLED_APPS += (
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    # REMOVE GOOGLE AUTH
     # Login via Google
-    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.google',
 )
 
 SITE_ID = 2
 
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = "none"
-SOCIALACCOUNT_QUERY_EMAIL = True
+# REMOVE GOOGLE AUTH
+# SOCIALACCOUNT_QUERY_EMAIL = True
 LOGIN_REDIRECT_URL = "/"
 
 MIDDLEWARE_CLASSES = (
