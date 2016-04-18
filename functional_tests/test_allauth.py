@@ -10,8 +10,8 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 
 class TestEmailLogin(StaticLiveServerTestCase):
-    # REMOVE GOOGLE AUTH
-    # fixtures = ['allauth_fixture']
+
+    fixtures = ['allauth_fixture']
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -56,6 +56,44 @@ class TestEmailLogin(StaticLiveServerTestCase):
             (By.XPATH, "//form[@id='signup_form']/button[1]")
         ))
         sign_up_button.click()
+        # user can see the logout button
+        logout = self.get_element_by_id("logout")
+        # user cannot see the register button
+        with self.assertRaises(TimeoutException):
+            self.get_element_by_id("email_register")
+        # user cannot see the login button
+        with self.assertRaises(TimeoutException):
+            self.get_element_by_id("email_login")
+        logout.click()
+        # user can once again see the login button
+        email_login = self.get_element_by_id("email_login")
+        # user can once again see the register button
+        email_register = self.get_element_by_id("email_register")
+
+    def test_email_login(self):
+        # user goes to the home page
+        self.browser.get(self.get_full_url("home"))
+        # user can see login button
+        email_login = self.get_element_by_id("email_login")
+        # user can see register button
+        email_register = self.get_element_by_id("email_register")
+        # user cannot see logout button
+        with self.assertRaises(TimeoutException):
+            self.get_element_by_id("logout")
+        # make sure the login button links to the correct place
+        self.assertEqual(
+            email_login.get_attribute("href"),
+            self.live_server_url + "/accounts/login"
+        )
+        email_login.click()
+        # user logs in here
+        self.get_element_by_id("id_login").send_keys("s@g.com")
+        self.get_element_by_id("id_password").send_keys("helloworld")
+        login_button = self.browser.wait.until(EC.element_to_be_clickable(
+            (By.XPATH, "//form[@class='login']/button[1]")
+        ))
+        login_button.click()
+
         # user can see the logout button
         logout = self.get_element_by_id("logout")
         # user cannot see the register button
