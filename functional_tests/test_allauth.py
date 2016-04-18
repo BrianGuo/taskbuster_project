@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 
-class TestGoogleLogin(StaticLiveServerTestCase):
+class TestEmailLogin(StaticLiveServerTestCase):
     # REMOVE GOOGLE AUTH
     # fixtures = ['allauth_fixture']
 
@@ -31,6 +31,45 @@ class TestGoogleLogin(StaticLiveServerTestCase):
 
     def get_full_url(self, namespace):
         return self.live_server_url + reverse(namespace)
+
+    def test_email_register(self):
+        # user goes to the home page
+        self.browser.get(self.get_full_url("home"))
+        # user can see login button
+        email_login = self.get_element_by_id("email_login")
+        # user can see register button
+        email_register = self.get_element_by_id("email_register")
+        # user cannot see logout button
+        with self.assertRaises(TimeoutException):
+            self.get_element_by_id("logout")
+        # make sure the register button links to the correct place
+        self.assertEqual(
+            email_register.get_attribute("href"),
+            self.live_server_url + "/accounts/signup"
+        )
+        email_register.click()
+        # user registers here
+        self.get_element_by_id("id_email").send_keys("edith@rhodes.edu")
+        self.get_element_by_id("id_password1").send_keys("mynameisedith")
+        self.get_element_by_id("id_password2").send_keys("mynameisedith")
+        sign_up_button = self.browser.wait.until(EC.element_to_be_clickable(
+            (By.XPATH, "//form[@id='signup_form']/button[1]")
+        ))
+        sign_up_button.click()
+        # user can see the logout button
+        logout = self.get_element_by_id("logout")
+        # user cannot see the register button
+        with self.assertRaises(TimeoutException):
+            self.get_element_by_id("email_register")
+        # user cannot see the login button
+        with self.assertRaises(TimeoutException):
+            self.get_element_by_id("email_login")
+        logout.click()
+        # user can once again see the login button
+        email_login = self.get_element_by_id("email_login")
+        # user can once again see the register button
+        email_register = self.get_element_by_id("email_register")
+
 
     # REMOVE GOOGLE AUTH
     # def user_login(self):
