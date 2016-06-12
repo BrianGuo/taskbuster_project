@@ -19,3 +19,8 @@ before_script:
   - sleep 3 # give xvfb some time to start
 # command to run tests
 script: "python3 manage.py test"
+deploy:
+  provider: heroku
+  api_key: e5256b24-ecb7-453e-b55e-9c631939561
+  app: taskbustertutsgl
+  run: "python3 manage.py migrate"
