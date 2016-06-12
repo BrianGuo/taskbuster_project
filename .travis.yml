@@ -7,12 +7,15 @@ python:
 # command to install dependencies
 install: "pip3 install -r requirements/testing.txt"
 before_script:
-- psql -c 'create database taskbuster_db;' -U postgres
-- export DJANGO_SETTINGS_MODULE="taskbuster.settings.testing"
-- export SECRET_KEY="%@suos(hri6mctkap-nyy6=*hxw03(deytyh)q8fna-9wk!l%@"
-- export DATABASE_NAME='taskbuster_db'
-- export DATABASE_USER=''
-- export DATABASE_PASSWORD=''
-- python3 manage.py migrate
+  - psql -c 'create database taskbuster_db;' -U postgres
+  - export DJANGO_SETTINGS_MODULE="taskbuster.settings.testing"
+  - export SECRET_KEY="%@suos(hri6mctkap-nyy6=*hxw03(deytyh)q8fna-9wk!l%@"
+  - export DATABASE_NAME='taskbuster_db'
+  - export DATABASE_USER=''
+  - export DATABASE_PASSWORD=''
+  - python3 manage.py migrate
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
 # command to run tests
 script: "python3 manage.py test"
