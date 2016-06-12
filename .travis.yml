@@ -1,9 +1,9 @@
 language: python
 sudo: required
 services:
-- postgresql
+  - postgresql
 python:
-- "3.5.1"
+  - "3.5.1"
 # command to install dependencies
 install: "pip3 install -r requirements/testing.txt"
 before_script:
@@ -14,10 +14,9 @@ before_script:
 - export DATABASE_USER=''
 - export DATABASE_PASSWORD=''
 - touch google_user.json
-- echo "{"Email": "taskbustertester@gmail.com", "Password": "foobarsammy"}" > google_user.json
+- echo '{"Email": "taskbustertester@gmail.com", "Password": "foobarsammy"}' > google_user.json
 - touch allauth_fixture.json
-- >
-echo "[
+- echo '[
 {
   "model": "auth.user",
   "pk": 1,
@@ -74,7 +73,7 @@ echo "[
     "email": "s@g.com"
   }
 }
-]" > allauth_fixture.json
+]' > allauth_fixture.json
 - python3 manage.py migrate
 # command to run tests
 script: "python3 manage.py test"
