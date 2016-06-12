@@ -13,9 +13,6 @@ before_script:
 - export DATABASE_NAME='taskbuster_db'
 - export DATABASE_USER=''
 - export DATABASE_PASSWORD=''
-- touch google_user.json
-- echo "{\"Email\": \"taskbustertester@gmail.com\", \"Password\": \"foobarsammy\"}" > google_user.json
-- touch allauth_fixture.json
 - python3 manage.py migrate
 # command to run tests
 script: "python3 manage.py test"

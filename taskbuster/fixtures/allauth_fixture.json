@@ -1,0 +1,58 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "is_staff": true,
+    "user_permissions": [],
+    "first_name": "",
+    "password": "pbkdf2_sha256$20000$Y2Vz2LQeUa4g$8sPAHnjHp+381R+uSQgfvm2U6DaI5qqEggu6e6lnoI8=",
+    "last_login": "2016-04-18T01:06:58.197Z",
+    "email": "samuel.gonzalesluna@gmail.com",
+    "is_active": true,
+    "username": "tbsamuelcg",
+    "groups": [],
+    "is_superuser": true,
+    "last_name": "",
+    "date_joined": "2016-04-18T01:06:17.771Z"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "is_staff": false,
+    "user_permissions": [],
+    "first_name": "",
+    "password": "pbkdf2_sha256$20000$jjCK0380WIji$wtK+XZhQxj6lBtR0yYHiud/U4ceCnBibtaOSwXr6JGM=",
+    "last_login": "2016-04-18T01:07:43.053Z",
+    "email": "s@g.com",
+    "is_active": true,
+    "username": "s",
+    "groups": [],
+    "is_superuser": false,
+    "last_name": "",
+    "date_joined": "2016-04-18T01:07:43.021Z"
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 2,
+  "fields": {
+    "domain": "example.com",
+    "name": "example.com"
+  }
+},
+{
+  "model": "account.emailaddress",
+  "pk": 1,
+  "fields": {
+    "verified": false,
+    "user": [
+      "s"
+    ],
+    "primary": true,
+    "email": "s@g.com"
+  }
+}
+]

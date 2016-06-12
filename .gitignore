@@ -4,7 +4,6 @@ TaskBuster.sublime-workspace
 .coverage
 .DS_Store
 htmlcov
-taskbuster/fixtures
 taskbuster/staticfiles/admin
 taskbuster/staticfiles/css
 taskbuster/staticfiles/fonts
