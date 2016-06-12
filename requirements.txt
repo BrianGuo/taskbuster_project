@@ -1,1 +1,2 @@
 -r requirements/production.txt
+selenium=2.53.1
