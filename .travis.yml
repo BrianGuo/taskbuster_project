@@ -16,7 +16,8 @@ before_script:
 - touch google_user.json
 - echo "{"Email": "taskbustertester@gmail.com", "Password": "foobarsammy"}" > google_user.json
 - touch allauth_fixture.json
-- echo "[
+- >
+echo "[
 {
   "model": "auth.user",
   "pk": 1,
