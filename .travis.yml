@@ -21,6 +21,6 @@ before_script:
 script: "python3 manage.py test"
 deploy:
   provider: heroku
-  api_key: e5256b24-ecb7-453e-b55e-9c631939561
+  api_key: e5256b24-ecb7-453e-b55e-9c6319395610
   app: taskbustertutsgl
   run: "python3 manage.py migrate"
