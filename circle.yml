@@ -1,0 +1,15 @@
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: brianstaskbuster
+machine:
+  environment:
+    SECRET_KEY : 'your_secret_key_here'
+    DATABASE_NAME : 'circle_test'
+    DATABASE_USER : 'ubuntu'
+    DATABASE_PASSWORD : ''
+    email : 'brianguosh@gmail.com'
+    password : donottell
+  python:
+    version : 3.5.0
