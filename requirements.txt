@@ -1,2 +1,3 @@
 -r requirements/production.txt
 selenium==2.53.1
+whitenoise==3.2
