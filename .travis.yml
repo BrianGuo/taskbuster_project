@@ -1,4 +1,5 @@
 language: python
+sudo: required
 services:
 - postgresql
 python:
@@ -12,6 +13,6 @@ before_script:
 - export DATABASE_NAME='taskbuster_db'
 - export DATABASE_USER=''
 - export DATABASE_PASSWORD=''
-- python3 manage.py syncdb -migrate -noinput
+- python3 manage.py migrate
 # command to run tests
 script: "python3 manage.py test"
